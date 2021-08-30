@@ -55,6 +55,20 @@ public class LinkedList<E> {
         head = tempNode;
         return key;
     }
+    public E popLast() {
+        INode<E> currentNode = head;
+        INode<E> previousNode = null;
+        while(currentNode.getNext() != null) {
+            previousNode = currentNode;
+            currentNode = currentNode.getNext();
+        }
+        E key = currentNode.getKey();
+        currentNode = null;
+        assert previousNode != null;
+        previousNode.setNext(null);
+        tail = previousNode;
+        return key;
+    }
 
     public void printMyNodes() {
         StringBuffer myNodes = new StringBuffer("My Nodes are: ");

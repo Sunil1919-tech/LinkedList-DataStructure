@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.bridgelabz.LinkedListTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2021-08-30T09:19:03" hostname="LAPTOP-NGQU5TVV" time="0.021">
+<testsuite name="com.bridgelabz.LinkedListTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2021-08-30T09:30:23" hostname="LAPTOP-NGQU5TVV" time="0.021">
   <properties/>
-  <testcase name="given3NumbersWhenAddedToLinkedListShouldBeAddedToLast()" classname="com.bridgelabz.LinkedListTest" time="0.016"/>
+  <testcase name="given3NumbersWhenAddedToLinkedListShouldBeAddedToLast()" classname="com.bridgelabz.LinkedListTest" time="0.014"/>
   <testcase name="givenFirstElement_WhenDeleted_ShouldPassLinkedListResult()" classname="com.bridgelabz.LinkedListTest" time="0.001"/>
-  <testcase name="givenThreeNumber_whenAddedToLinkedListShouldAddedToTheTop()" classname="com.bridgelabz.LinkedListTest" time="0.0"/>
+  <testcase name="givenLastElement_WhenDeleted_ShouldPassLinkedListTest()" classname="com.bridgelabz.LinkedListTest" time="0.001"/>
+  <testcase name="givenThreeNumber_whenAddedToLinkedListShouldAddedToTheTop()" classname="com.bridgelabz.LinkedListTest" time="0.001"/>
   <testcase name="given3NumbersWhenInsertingSecondInBetween_ShouldPassLinkedList()" classname="com.bridgelabz.LinkedListTest" time="0.001"/>
   <system-out><![CDATA[Print statement
 My Nodes are: 56->30->70
 Print statement
 My Nodes are: 30->70
+Print statement
+My Nodes are: 56->30
 Print statement
 My Nodes are: 70->30->56
 Print statement
