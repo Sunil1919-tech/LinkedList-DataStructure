@@ -73,7 +73,7 @@ public class LinkedListTest {
         Assertions.assertTrue(result);
     }
 
-    //Deleting the Element from the Linked List
+        //Deleting the first Element from the Linked List
     @Test
     public void givenFirstElement_WhenDeleted_ShouldPassLinkedListResult() {
         MyNode<Integer> myFirstNode = new MyNode<>(56);
@@ -93,6 +93,7 @@ public class LinkedListTest {
                 myLinkedList.tail.equals(myThirdNode);
         Assertions.assertTrue(result);
     }
+    //testCase to delete the last element from the list
     @Test
     public void  givenLastElement_WhenDeleted_ShouldPassLinkedListTest() {
         MyNode<Integer> myFirstNode = new MyNode<>(56);
@@ -111,6 +112,21 @@ public class LinkedListTest {
                 myLinkedList.tail.equals(mySecondNode);
         Assertions.assertTrue(result);
     }
+    @Test
+    public void givenElementToSearchWhenMatched_ShouldPassLinkedListResult() {
+        MyNode<Integer> myFirstNode = new MyNode<>(56);
+        MyNode<Integer> mySecondNode = new MyNode<>(30);
+        MyNode<Integer> myThirdNode = new MyNode<>(70);
 
+        LinkedList<Integer> myLinkedList = new LinkedList<>();
+
+        myLinkedList.add(myFirstNode);
+        myLinkedList.append(mySecondNode);
+        myLinkedList.append(myThirdNode);
+        myLinkedList.search(mySecondNode);
+
+        boolean result = myLinkedList.head.getNext().equals(mySecondNode);
+        Assertions.assertTrue(result);
+    }
 }
 

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.bridgelabz.LinkedListTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2021-08-30T09:30:23" hostname="LAPTOP-NGQU5TVV" time="0.021">
+<testsuite name="com.bridgelabz.LinkedListTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-08-30T10:03:30" hostname="LAPTOP-NGQU5TVV" time="0.022">
   <properties/>
-  <testcase name="given3NumbersWhenAddedToLinkedListShouldBeAddedToLast()" classname="com.bridgelabz.LinkedListTest" time="0.014"/>
+  <testcase name="given3NumbersWhenAddedToLinkedListShouldBeAddedToLast()" classname="com.bridgelabz.LinkedListTest" time="0.015"/>
+  <testcase name="givenElementToSearchWhenMatched_ShouldPassLinkedListResult()" classname="com.bridgelabz.LinkedListTest" time="0.0"/>
   <testcase name="givenFirstElement_WhenDeleted_ShouldPassLinkedListResult()" classname="com.bridgelabz.LinkedListTest" time="0.001"/>
   <testcase name="givenLastElement_WhenDeleted_ShouldPassLinkedListTest()" classname="com.bridgelabz.LinkedListTest" time="0.001"/>
   <testcase name="givenThreeNumber_whenAddedToLinkedListShouldAddedToTheTop()" classname="com.bridgelabz.LinkedListTest" time="0.001"/>

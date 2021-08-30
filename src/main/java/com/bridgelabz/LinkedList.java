@@ -69,6 +69,22 @@ public class LinkedList<E> {
         tail = previousNode;
         return key;
     }
+    public boolean search(MyNode<Integer> item) {
+        boolean isPresent = false;
+        INode<E> tempNode = head;
+        while(tempNode.getNext() != null) {
+            if(tempNode.getKey().equals(item)) {
+                isPresent = true;
+            }
+            else {
+                tempNode = tempNode.getNext();
+            }
+        }
+        if(tail.getKey().equals(item)) {
+            isPresent = true;
+        }
+        return isPresent;
+    }
 
     public void printMyNodes() {
         StringBuffer myNodes = new StringBuffer("My Nodes are: ");
