@@ -6,7 +6,7 @@ using Getter and Setter Method
  */
 public class MyNode<T> implements INode<T> {
     private T data;
-    private MyNode next;
+    private INode next;
 
     MyNode() {
 
@@ -33,6 +33,6 @@ public class MyNode<T> implements INode<T> {
     }
 
     public void setNext(INode next) {
-        this.next = (MyNode<T>) next;
+        this.next = next;
     }
 }

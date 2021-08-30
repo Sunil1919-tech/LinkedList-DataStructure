@@ -1,6 +1,6 @@
 package com.bridgelabz;
 
-public class LinkedList<T> {
+public class LinkedList<T extends Comparable<T>> {
     public INode<T> head;
     public INode<T> tail;
 
@@ -73,6 +73,7 @@ public class LinkedList<T> {
         }
         return null;
     }
+
     //delete the inserted Element 40
     public void popNode(T key) {
         INode tempNode = head;
@@ -91,5 +92,25 @@ public class LinkedList<T> {
             tempNode = tempNode.getNext();
         }
         return size;
+    }
+
+    // Add Node in Sorted Linked List
+    public void sortedLinkedList(INode<T> newNode) {
+        INode<T> tempNode = head;
+        INode<T> prevNode = null;
+        while (tempNode != null && (newNode.getData()).compareTo((T) tempNode.getData()) > 0) {
+            prevNode = tempNode;
+            tempNode = tempNode.getNext();
+        }
+        if (prevNode == null) {
+            this.head = newNode;
+        } else {
+            prevNode.setNext(newNode);
+        }
+        newNode.setNext(tempNode);
+        while (tempNode != null) {
+            this.tail = tempNode;
+            tempNode = tempNode.getNext();
+        }
     }
 }
