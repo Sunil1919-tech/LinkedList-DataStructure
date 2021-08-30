@@ -44,5 +44,12 @@ public class LinkedList<E> {
 
         myNodes.append((tempNode.getKey()));
         System.out.println(myNodes);
+    }/*
+    method to insert the 30 b/w 56 and 70
+    */
+    public void insert(INode<E> myNode, INode<E> newNode) {
+        INode<E> tempNode = myNode.getNext();
+        myNode.setNext(newNode);
+        newNode.setNext((tempNode));
     }
 }
