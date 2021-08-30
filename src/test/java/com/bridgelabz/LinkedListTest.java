@@ -11,122 +11,108 @@ import org.junit.jupiter.api.Test;
  * @since 22/08/2021
  */
 public class LinkedListTest {
-    //testCase to Add the Nodes for the Linked List
     @Test
-    public void givenThreeNumber_whenAddedToLinkedListShouldAddedToTheTop() {
-
-        MyNode<Integer> myThirdNode = new MyNode<>(70);
+    public void GivenThreeNumbers_WhenAddedToLinkedList_ShouldBeAddedToTop() {
+        MyNode<Integer> myFirstNode = new MyNode<>(70);
         MyNode<Integer> mySecondNode = new MyNode<>(30);
+        MyNode<Integer> myThirdNode = new MyNode<>(56);
+        LinkedList<Integer> myLinkedList = new LinkedList<Integer>();
+        myLinkedList.addFirst(myFirstNode);
+        myLinkedList.addFirst(mySecondNode);
+        myLinkedList.addFirst(myThirdNode);
+        boolean result = (myLinkedList.head.equals(myThirdNode) && myLinkedList.head.getNext().equals(mySecondNode)
+                && myLinkedList.tail.equals(myFirstNode));
+        Assertions.assertEquals(true, result);
+    }
+    //Created Simple Linked List and Added to The Last position
+
+    @Test
+    public void GivenThreeNumbers_WhenAddedToLinkedList_ShouldAddedtoBottom() {
         MyNode<Integer> myFirstNode = new MyNode<>(56);
-
-        LinkedList<Integer> myLinkedList = new LinkedList<>();
-
-        myLinkedList.add(myFirstNode);
-        myLinkedList.add(mySecondNode);
-        myLinkedList.add(myThirdNode);
-
-        myLinkedList.printMyNodes();
-
-        boolean result = myLinkedList.head.equals(myThirdNode) && myLinkedList.head.getNext().equals(mySecondNode) && myLinkedList.tail.equals(myFirstNode);
-        Assertions.assertTrue(result);
+        MyNode<Integer> mySecondNode = new MyNode<>(30);
+        MyNode<Integer> myThirdNode = new MyNode<>(70);
+        LinkedList<Integer> myLinkedList = new LinkedList<Integer>();
+        myLinkedList.addLast(myFirstNode);
+        myLinkedList.addLast(mySecondNode);
+        myLinkedList.addLast(myThirdNode);
+        boolean result = (myLinkedList.head.equals(myFirstNode) && myLinkedList.head.getNext().equals(mySecondNode)
+                && myLinkedList.tail.equals(myThirdNode));
+        Assertions.assertEquals(true, result);
     }
 
-    //testCase To Implement the appending the Linked List
+    // Insert  A element Between 2 nodes
     @Test
-    public void given3NumbersWhenAddedToLinkedListShouldBeAddedToLast() {
+    public void GivenANodeInsertedInBetweenResultingNodes_ShouldReturnTrue() {
         MyNode<Integer> myFirstNode = new MyNode<>(56);
         MyNode<Integer> mySecondNode = new MyNode<>(30);
         MyNode<Integer> myThirdNode = new MyNode<>(70);
-
-        LinkedList<Integer> myLinkedList = new LinkedList<>();
-
-        myLinkedList.add(myFirstNode);
-        myLinkedList.append(mySecondNode);
-        myLinkedList.append(myThirdNode);
-
-        myLinkedList.printMyNodes();
-
-        boolean result = myLinkedList.head.equals(myFirstNode) &&
-                myLinkedList.head.getNext().equals(mySecondNode) &&
-                myLinkedList.tail.equals(myThirdNode);
-        Assertions.assertTrue(result);
+        LinkedList<Integer> LinkedList = new LinkedList<Integer>();
+        LinkedList.addLast(myFirstNode);
+        LinkedList.addLast(myThirdNode);
+        LinkedList.insertNode(myFirstNode, mySecondNode);
+        boolean result = (LinkedList.head.equals(myFirstNode) && LinkedList.head.getNext().equals(mySecondNode)
+                && LinkedList.tail.equals(myThirdNode));
+        Assertions.assertEquals(true, result);
     }
 
-    //testCase to insert the number between two Numbers
+    // Delete First Node
     @Test
-    public void given3NumbersWhenInsertingSecondInBetween_ShouldPassLinkedList() {
-        MyNode<Integer> myFirstNode = new MyNode<>(56);
+    public void PopNodeFromFront_ShouldReturnTrue() {
+        MyNode<Integer> myFirstNode = new MyNode<>(70);
         MyNode<Integer> mySecondNode = new MyNode<>(30);
-        MyNode<Integer> myThirdNode = new MyNode<>(70);
-
-        LinkedList<Integer> myLinkedList = new LinkedList<>();
-
-        myLinkedList.add(myFirstNode);
-        myLinkedList.append(myThirdNode);
-        myLinkedList.insert(1, mySecondNode);
-
-        myLinkedList.printMyNodes();
-
-        boolean result = myLinkedList.head.equals(myFirstNode) &&
-                myLinkedList.head.getNext().equals(mySecondNode) &&
-                myLinkedList.tail.equals(myThirdNode);
-        Assertions.assertTrue(result);
+        MyNode<Integer> myThirdNode = new MyNode<>(56);
+        LinkedList<Integer> LinkedList = new LinkedList<Integer>();
+        LinkedList.addFirst(myFirstNode);
+        LinkedList.addFirst(mySecondNode);
+        LinkedList.addFirst(myThirdNode);
+        INode<Integer> deletedNode = LinkedList.popFirst();
+        Assertions.assertEquals(deletedNode, myThirdNode);
     }
 
-        //Deleting the first Element from the Linked List
+    //Delete Last Node
     @Test
-    public void givenFirstElement_WhenDeleted_ShouldPassLinkedListResult() {
-        MyNode<Integer> myFirstNode = new MyNode<>(56);
+    public void PopNodeFromLast_ShouldReturnTrue() {
+        MyNode<Integer> myFirstNode = new MyNode<>(70);
         MyNode<Integer> mySecondNode = new MyNode<>(30);
-        MyNode<Integer> myThirdNode = new MyNode<>(70);
-
-        LinkedList<Integer> myLinkedList = new LinkedList<>();
-
-        myLinkedList.add(myFirstNode);
-        myLinkedList.append(mySecondNode);
-        myLinkedList.append(myThirdNode);
-        myLinkedList.pop();
-
-        myLinkedList.printMyNodes();
-
-        boolean result = myLinkedList.head.equals(mySecondNode) &&
-                myLinkedList.tail.equals(myThirdNode);
-        Assertions.assertTrue(result);
+        MyNode<Integer> myThirdNode = new MyNode<>(56);
+        LinkedList<Integer> LinkedList = new LinkedList<Integer>();
+        LinkedList.addFirst(myFirstNode);
+        LinkedList.addFirst(mySecondNode);
+        LinkedList.addFirst(myThirdNode);
+        INode<Integer> deletedNode = LinkedList.popLast();
+        Assertions.assertEquals(deletedNode, myFirstNode);
     }
-    //testCase to delete the last element from the list
+
+    //Search Node With A given Element
     @Test
-    public void  givenLastElement_WhenDeleted_ShouldPassLinkedListTest() {
-        MyNode<Integer> myFirstNode = new MyNode<>(56);
+    public void  SearchNodeForGivenDataIfFound_ShouldReturnTrue() {
+        MyNode<Integer> myFirstNode = new MyNode<>(70);
         MyNode<Integer> mySecondNode = new MyNode<>(30);
-        MyNode<Integer> myThirdNode = new MyNode<>(70);
-
-        LinkedList<Integer> myLinkedList = new LinkedList<>();
-
-        myLinkedList.add(myFirstNode);
-        myLinkedList.append(myThirdNode);
-        myLinkedList.insert(1, mySecondNode);
-        myLinkedList.popLast();
-        myLinkedList.printMyNodes();
-
-        boolean result = myLinkedList.head.equals(myFirstNode) &&
-                myLinkedList.tail.equals(mySecondNode);
-        Assertions.assertTrue(result);
+        MyNode<Integer> myThirdNode = new MyNode<>(56);
+        LinkedList<Integer> LinkedList = new LinkedList<Integer>();
+        LinkedList.addFirst(myFirstNode);
+        LinkedList.addFirst(mySecondNode);
+        LinkedList.addFirst(myThirdNode);
+        INode searchNode= LinkedList.searchNode(30);
+        Assertions.assertEquals(searchNode, mySecondNode);
     }
+    //Search dataNode and insert
     @Test
-    public void givenElementToSearchWhenMatched_ShouldPassLinkedListResult() {
-        MyNode<Integer> myFirstNode = new MyNode<>(56);
+    public void SearchDataNodeForGivenDataIfFound_ShouldInsertGivenNodeAndReturnTrue() {
+        MyNode<Integer> myFirstNode = new MyNode<>(70);
         MyNode<Integer> mySecondNode = new MyNode<>(30);
-        MyNode<Integer> myThirdNode = new MyNode<>(70);
-
-        LinkedList<Integer> myLinkedList = new LinkedList<>();
-
-        myLinkedList.add(myFirstNode);
-        myLinkedList.append(mySecondNode);
-        myLinkedList.append(myThirdNode);
-        myLinkedList.search(mySecondNode);
-
-        boolean result = myLinkedList.head.getNext().equals(mySecondNode);
-        Assertions.assertTrue(result);
+        MyNode<Integer> myThirdNode = new MyNode<>(56);
+        MyNode<Integer> myFourthNode = new MyNode<>(40);
+        LinkedList<Integer> LinkedList = new LinkedList<Integer>();
+        LinkedList.addFirst(myFirstNode);
+        LinkedList.addFirst(mySecondNode);
+        LinkedList.addFirst(myThirdNode);
+        INode searchNode= LinkedList.searchNode(30);
+        LinkedList.insertNode(searchNode, myFourthNode);
+        boolean result = (LinkedList.head.equals(myThirdNode) && LinkedList.head.getNext().equals(searchNode)
+                && LinkedList.head.getNext().getNext().equals(myFourthNode)
+                && LinkedList.tail.equals(myFirstNode));
+        Assertions.assertEquals(true, result);
     }
 }
 

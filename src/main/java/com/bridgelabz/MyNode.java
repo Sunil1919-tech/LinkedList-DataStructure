@@ -4,29 +4,38 @@ package com.bridgelabz;
 MyNode class declaring the Node Value and the Next value
 using Getter and Setter Method
  */
-public class MyNode<E> implements INode<E> {
-    private E key;
-    private MyNode<E> next;
+public class MyNode<T> implements INode<T> {
+    private T data;
+    private MyNode next ;
+    MyNode(){
 
-
-    public MyNode(E key) {
-        this.key = key;
-        this.next = null;
+    }
+    //constructor with Node fields
+    public MyNode(T data) {
+        this.setData(data);
+        this.setData(null);
     }
 
-    public E getKey() {
-        return key;
+    @Override
+    public T getData() {
+        return data;
     }
 
-    public void setKey(E key) {
-        this.key = key;
+    @Override
+    public void setData(T data) {
+        this.data = data;
     }
 
-    public INode<E> getNext() {
+    public INode getNext() {
         return next;
     }
 
-    public void setNext(INode<E> next) {
-        this.next = (MyNode<E>) next;
+    public void setNext(INode next) {
+        this.next = (MyNode<T>) next;
+    }
+
+    /* print welcome message */
+    public void printWelcomeMessage() {
+        System.out.println("Welcome to the Data Structure Problem");
     }
 }
