@@ -32,6 +32,30 @@ public class LinkedList<E> {
         this.tail = myNode;
     }
 
+    public void insert(int position, INode<E> node) {
+        int count = 0;
+        INode<E> previousNode = null;
+        INode<E> currentNode = head;
+        while (count != position) {
+            count++;
+            previousNode = currentNode;
+            currentNode = currentNode.getNext();
+        }
+        assert previousNode != null;
+        previousNode.setNext(node);
+        node.setNext(currentNode);
+    }
+
+    /*
+    pop method to delete the element from the List
+     */
+    public E pop() {
+        INode<E> tempNode = head.getNext();
+        E key = head.getKey();
+        head = tempNode;
+        return key;
+    }
+
     public void printMyNodes() {
         StringBuffer myNodes = new StringBuffer("My Nodes are: ");
         System.out.println("Print statement");
@@ -44,12 +68,5 @@ public class LinkedList<E> {
 
         myNodes.append((tempNode.getKey()));
         System.out.println(myNodes);
-    }/*
-    method to insert the 30 b/w 56 and 70
-    */
-    public void insert(INode<E> myNode, INode<E> newNode) {
-        INode<E> tempNode = myNode.getNext();
-        myNode.setNext(newNode);
-        newNode.setNext((tempNode));
     }
 }

@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  * purpose- test cases to create the LinkedList using Data Structures
+ *
  * @author Sunil
  * @version 16.0
  * @since 22/08/2021
@@ -29,7 +30,8 @@ public class LinkedListTest {
         boolean result = myLinkedList.head.equals(myThirdNode) && myLinkedList.head.getNext().equals(mySecondNode) && myLinkedList.tail.equals(myFirstNode);
         Assertions.assertTrue(result);
     }
-//testCase To Implement the appending the Linked List
+
+    //testCase To Implement the appending the Linked List
     @Test
     public void given3NumbersWhenAddedToLinkedListShouldBeAddedToLast() {
         MyNode<Integer> myFirstNode = new MyNode<>(56);
@@ -49,7 +51,8 @@ public class LinkedListTest {
                 myLinkedList.tail.equals(myThirdNode);
         Assertions.assertTrue(result);
     }
-//testCase to insert the number between two Numbers
+
+    //testCase to insert the number between two Numbers
     @Test
     public void given3NumbersWhenInsertingSecondInBetween_ShouldPassLinkedList() {
         MyNode<Integer> myFirstNode = new MyNode<>(56);
@@ -60,12 +63,33 @@ public class LinkedListTest {
 
         myLinkedList.add(myFirstNode);
         myLinkedList.append(myThirdNode);
-        myLinkedList.insert(myFirstNode, mySecondNode);
+        myLinkedList.insert(1, mySecondNode);
 
         myLinkedList.printMyNodes();
 
         boolean result = myLinkedList.head.equals(myFirstNode) &&
                 myLinkedList.head.getNext().equals(mySecondNode) &&
+                myLinkedList.tail.equals(myThirdNode);
+        Assertions.assertTrue(result);
+    }
+
+    //Deleting the Element from the Linked List
+    @Test
+    public void givenFirstElement_WhenDeleted_ShouldPassLinkedListResult() {
+        MyNode<Integer> myFirstNode = new MyNode<>(56);
+        MyNode<Integer> mySecondNode = new MyNode<>(30);
+        MyNode<Integer> myThirdNode = new MyNode<>(70);
+
+        LinkedList<Integer> myLinkedList = new LinkedList<>();
+
+        myLinkedList.add(myFirstNode);
+        myLinkedList.append(mySecondNode);
+        myLinkedList.append(myThirdNode);
+        myLinkedList.pop();
+
+        myLinkedList.printMyNodes();
+
+        boolean result = myLinkedList.head.equals(mySecondNode) &&
                 myLinkedList.tail.equals(myThirdNode);
         Assertions.assertTrue(result);
     }
