@@ -3,20 +3,27 @@ package com.bridgelabz;
 MyNode class declaring the Node Value and the Next value
 using Getter and Setter Method
  */
-public class MyNode<K> {
-    private K key;
-    private MyNode<K> next;
+public class MyNode<E> extends INode<E> {
+    private E key;
+    private MyNode<E> next;
 
-    public MyNode(K key) {
+
+    public MyNode(E key) {
         this.key = key;
         this.next = null;
     }
+    public E getKey(){
 
-    public MyNode<K> getNext() {
+        return key;
+    }
+    public void setKey(E key){
+        this.key=key;
+    }
+    public INode<E> getNext(){
         return next;
     }
 
-    public void setNext(MyNode<K> next) {
-        this.next = next;
-    }
+     public void setNext(INode<E> next){
+        this.next=(MyNode<E>) next;
+     }
 }

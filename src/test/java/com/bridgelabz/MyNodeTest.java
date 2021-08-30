@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
  * @version 16.0
  * @since 21/08/2021
  */
-public class MyLinkedListTest {
+public class MyNodeTest {
     @Test
     public void given3Number_WhenLinkedShouldPassedLinkedListTest() {
 
