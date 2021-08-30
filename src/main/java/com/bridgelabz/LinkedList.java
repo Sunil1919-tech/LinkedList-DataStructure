@@ -4,7 +4,7 @@ public class LinkedList<T> {
     public INode<T> head;
     public INode<T> tail;
 
-    public void LinkedList() {
+    public void MyLinkedList() {
         this.head = null;
         this.tail = null;
     }
@@ -28,7 +28,7 @@ public class LinkedList<T> {
         if (this.head == null) {
             this.head = newNode;
         }
-        if(tail == null) {
+        if (tail == null) {
             tail = newNode;
         } else {
             this.tail.setNext(newNode);
@@ -41,6 +41,7 @@ public class LinkedList<T> {
         mySecondNode.setNext(myFirstNode.getNext());
         myFirstNode.setNext(mySecondNode);
     }
+
     /*
     pop method to delete the first element from the List
      */
@@ -71,5 +72,24 @@ public class LinkedList<T> {
             tempNode = tempNode.getNext();
         }
         return null;
+    }
+    //delete the inserted Element 40
+    public void popNode(T key) {
+        INode tempNode = head;
+        while (tempNode.getNext().getData() != key) {
+            tempNode = tempNode.getNext();
+        }
+        tempNode.setNext(tempNode.getNext().getNext());
+    }
+
+
+    public int getSize() {
+        int size = 0;
+        INode tempNode = head;
+        while (tempNode != null) {
+            size++;
+            tempNode = tempNode.getNext();
+        }
+        return size;
     }
 }

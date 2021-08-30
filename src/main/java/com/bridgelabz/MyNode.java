@@ -6,14 +6,16 @@ using Getter and Setter Method
  */
 public class MyNode<T> implements INode<T> {
     private T data;
-    private MyNode next ;
-    MyNode(){
+    private MyNode next;
+
+    MyNode() {
 
     }
+
     //constructor with Node fields
     public MyNode(T data) {
         this.setData(data);
-        this.setData(null);
+        this.setNext(null);
     }
 
     @Override
@@ -32,10 +34,5 @@ public class MyNode<T> implements INode<T> {
 
     public void setNext(INode next) {
         this.next = (MyNode<T>) next;
-    }
-
-    /* print welcome message */
-    public void printWelcomeMessage() {
-        System.out.println("Welcome to the Data Structure Problem");
     }
 }
